@@ -1,0 +1,19 @@
+@using _110124.Models.Category
+@model IEnumerable<GetAllCategoryModel>
+
+<section class="categories">
+    @if (Model != null && Model.Count() > 0)
+    {
+        foreach (var item in Model.ToList())
+        {
+            <div class="category">
+                <a class="nav-link text-dark" asp-controller="Categories" asp-action="" asp-route-id="@item.Id">@item.Name</a>
+            </div>
+        }
+    }
+    else
+    {
+        <h3>No categories found</h3>
+    }
+
+</section>

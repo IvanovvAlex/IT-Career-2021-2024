@@ -1,0 +1,23 @@
+@using _110124.Models.Product
+@model IEnumerable<GetAllProductsModel>
+
+<section class="products">
+    <h1>Products</h1>
+    <a class="create-btn" asp-controller="Products" asp-action="Create"
+        style="padding-left: 1rem; padding-right: 1rem; background-color:rgb(53, 238, 53); color: #ffffff; border-radius: 1rem;     text-decoration: none;">Create</a>
+
+    @if (Model != null && Model.Count() > 0)
+    {
+        foreach (var item in Model.ToList())
+        {
+            <div class="category">
+                <a class="nav-link text-dark" asp-controller="Products" asp-action="" asp-route-id="@item.Id">@item.Name</a>
+            </div>
+        }
+    }
+    else
+    {
+        <h3>No products found</h3>
+    }
+
+</section>

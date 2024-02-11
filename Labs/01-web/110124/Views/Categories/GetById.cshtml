@@ -1,0 +1,29 @@
+@using _110124.Models.Category
+@model CategoryModel
+
+<section class="products">
+    @if (Model != null)
+    {
+        <h3>Products in @Model.Name</h3>
+        @if (Model.Products.Count > 0)
+        {
+            <h2>@Model.Name</h2>
+            <ul>
+                @foreach (var product in Model.Products)
+                {
+                    <li>
+                        <a href="@Url.Action("Details", "Product", new { id = product.Id })">
+                            <img src="@product.ImageUrl" alt="@product.Name" />
+                            <h3>@product.Name</h3>
+                            <p>@product.Description</p>
+                        </a>
+                    </li>
+                }
+            </ul>
+        }
+        else
+        {
+            <h2>No products found</h2>
+        }
+    }
+</section>
